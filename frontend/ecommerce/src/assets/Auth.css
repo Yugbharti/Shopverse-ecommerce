@@ -1,0 +1,106 @@
+/* Page wrapper */
+.auth-container {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f7f7f7;
+  padding: 20px;
+}
+
+/* Heading */
+.auth-container h2 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #111;
+}
+
+/* Form card */
+.auth-form {
+  width: 100%;
+  max-width: 360px;
+  background-color: #ffffff;
+  padding: 28px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Input group */
+.auth-form div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Inputs */
+.auth-form input {
+  padding: 11px 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.2s ease;
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+/* Mono error text */
+.auth-form small {
+  font-size: 12px;
+  color: #444; /* monochrome */
+}
+
+/* Submit button */
+.auth-form button {
+  margin-top: 8px;
+  padding: 11px;
+  font-size: 15px;
+  font-weight: 500;
+  border-radius: 6px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.auth-form button:hover {
+  background-color: #111;
+}
+
+.auth-form button:active {
+  background-color: #000;
+}
+
+/* Success message container */
+.success-message {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-right:1rem;
+  padding: 10px 0px;
+  padding-left:5px;
+  border-left: 4px solid #000;
+  background-color: #f4f4f4;
+  border-radius: 6px;
+}
+
+/* Success text */
+.success-message small {
+  font-size: 13px;
+  color: #111;
+  font-weight: 500;
+}
+.errors-msg{
+  color: rgb(233, 19, 19);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: small;
+  font-weight: 500;
+}

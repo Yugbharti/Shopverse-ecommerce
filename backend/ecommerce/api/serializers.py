@@ -34,6 +34,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class OrderItemSerializer(serializers.ModelSerializer):
     total_price = serializers.SerializerMethodField(read_only=True)
     price_per_unit = serializers.SerializerMethodField(read_only=True)
+    product = ProductSerializer()
 
     class Meta:
         model = OrderItem
@@ -53,12 +54,12 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 class OrderSerializer(serializers.ModelSerializer):
     order_items = OrderItemSerializer(read_only=True, many=True)
-    # total_amount = serializers.SerializerMethodField()
-    # final_amount = serializers.SerializerMethodField()
 
     class Meta:
         model = Order
         fields = [
+            "order_number",
+            "created_at",
             "order_items",
             "user",
             "total_amount",
@@ -70,13 +71,3 @@ class OrderSerializer(serializers.ModelSerializer):
             "payment_status",
             "payment_method",
         ]
-
-    # def get_total_amount(self, obj):
-    #     qs = OrderItem.objects.filter(order=obj)
-    #     price = qs.aggregate(Sum("total_price"))["total_price__sum"]
-    #     return price
-
-    # def get_final_amount(self, obj):
-    #     qs = OrderItem.objects.filter(order=obj)
-    #     price = qs.aggregate(Sum("total_price"))["total_price__sum"]
-    #     return price

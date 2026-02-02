@@ -1,4 +1,4 @@
-.order-container {
+/* .order-container {
   max-width: 700px;
   margin: 30px auto;
   font-family: Arial, sans-serif;
@@ -57,4 +57,195 @@
 
 .qty {
   font-size: 13px;
+}
+.img-product{
+  height:4rem;
+  width:4rem;
+  border-radius: 10%;
+  margin-top:10px;
+} */
+
+.order-history-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.page-title {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.order-master-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.order-header {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-id {
+  font-weight: bold;
+  display: block;
+}
+
+.order-date {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Status Colors */
+.status-badge.delivered { background: #e8f5e9; color: #2e7d32; }
+.status-badge.pending { background: #fff3e0; color: #ef6c00; }
+.status-badge.shipped { background: #e3f2fd; color: #1565c0; }
+
+/* Items */
+.items-section {
+  padding: 1rem;
+}
+
+.item-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #fafafa;
+}
+
+.product-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.item-details {
+  flex-grow: 1;
+}
+
+.item-details h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #444;
+}
+
+.item-details p {
+  margin: 4px 0 0;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.item-price {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Footer */
+.order-footer {
+  padding: 1rem;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #eee;
+}
+
+.payment-info p {
+  margin: 4px 0;
+  font-size: 0.85rem;
+}
+
+.price-summary {
+  min-width: 200px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.total-row {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #ccc;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.final-price {
+  color: #d32f2f;
+}
+.empty-orders-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 67.8vh; /* Centers it vertically on the screen */
+  text-align: center;
+  padding: 2rem;
+}
+
+.empty-orders-content {
+  max-width: 400px;
+}
+
+.icon-circle {
+  width: 80px;
+  height: 80px;
+  background-color: #f0f2f5;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 1.5rem;
+  font-size: 2.5rem;
+}
+
+.empty-orders-content h3 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.empty-orders-content p {
+  color: #666;
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+.shop-now-btn {
+  background-color: #ff3f6c; /* Use your brand color */
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.shop-now-btn:hover {
+  background-color: #e83661;
+  box-shadow: 0 4px 12px rgba(255, 63, 108, 0.2);
 }

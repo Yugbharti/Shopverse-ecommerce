@@ -121,7 +121,7 @@ class Order(models.Model):
     def calculate_total_amount(self):
         items = self.order_items.all()
         price = items.aggregate(Sum("total_price"))["total_price__sum"]
-        return price
+        return price or 0
 
     def calculate_final_amount(self):
         return (
@@ -137,7 +137,7 @@ class Order(models.Model):
 
         self.total_amount = self.calculate_total_amount()
         self.final_amount = self.calculate_final_amount()
-        super().save(*args, **kwargs)
+        super().save(update_fields=["total_amount", "final_amount"])
 
 
 class OrderItem(models.Model):
@@ -153,7 +153,7 @@ class OrderItem(models.Model):
         self.price_per_unit = self.product.price
         self.total_price = self.price_per_unit * self.quantity
         super().save(*args, **kwargs)
-        self.order.save(update_fields=["total_amount", "final_amount"])
+        self.order.save()
 
 
 class WishList(models.Model):

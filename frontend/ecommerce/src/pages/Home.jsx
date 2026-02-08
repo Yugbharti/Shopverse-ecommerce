@@ -16,7 +16,7 @@ const Home = () => {
       try {
         setLoading(true);
         const res = await axios.get(
-          "http://127.0.0.1:8000/api/products?category=mobile/",
+          "http://127.0.0.1:8000/api/products?category=mobile",
         );
         setProducts(res.data);
         const res2 = await axios.get(

@@ -8,6 +8,7 @@ import AuthProvider from "./AuthProvider";
 import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import Order from "./pages/Order";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/orders" element={<Order />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
         <Footer />
       </BrowserRouter>

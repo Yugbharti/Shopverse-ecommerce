@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, ProductImage, SubCategory, Order, OrderItem
+from .models import Product, ProductImage, SubCategory, Order, OrderItem, Cart, CartItem
 from django.db.models import Sum
 
 
@@ -71,3 +71,9 @@ class OrderSerializer(serializers.ModelSerializer):
             "payment_status",
             "payment_method",
         ]
+
+
+class CartSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Cart
+        fields = "__all__"

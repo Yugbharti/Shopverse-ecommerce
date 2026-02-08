@@ -100,3 +100,10 @@ class OrdersView(APIView):
         serializer = OrderSerializer(data, many=True)
 
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class CartCreateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user = request.user

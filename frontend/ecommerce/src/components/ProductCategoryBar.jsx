@@ -3,6 +3,7 @@ import "../assets/ProductCategoryBar.css";
 
 const ProductCategoryBar = ({ title, products = [] }) => {
   if (!products || products.length === 0) return null;
+  const handleAddtoCart = () => {};
 
   return (
     <div className="category-bar">
@@ -15,10 +16,8 @@ const ProductCategoryBar = ({ title, products = [] }) => {
         {products.map((product, index) => {
           // Access the first image safely from your array structure
           const firstImage = product.images?.[0]?.image_url;
-
-          // Use product UUID from image object if top-level ID is missing
           const uniqueKey = product.images?.[0]?.product || `prod-${index}`;
-
+          const productId = product.images?.[0]?.product;
           return (
             <div className="product-card" key={uniqueKey}>
               <div className="image-wrapper">
@@ -33,6 +32,11 @@ const ProductCategoryBar = ({ title, products = [] }) => {
                 <p className="product-price">
                   ₹{product.price.toLocaleString("en-IN")}
                 </p>
+              </div>
+              <div>
+                <button class="add-btn" onClick={handleAddtoCart}>
+                  Add to Cart
+                </button>
               </div>
             </div>
           );

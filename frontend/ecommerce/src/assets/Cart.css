@@ -142,3 +142,10 @@
   background-color: #e83661;
   box-shadow: 0 4px 12px rgba(255, 63, 108, 0.2);
 }
+
+.buy-btn{
+  color:#e83661;
+  background-color: #333;
+  padding: 20px;
+  border-radius: 20px;
+}

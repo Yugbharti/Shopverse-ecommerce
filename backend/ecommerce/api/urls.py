@@ -10,4 +10,6 @@ urlpatterns = [
     path("protected_view/", views.ProtectedView.as_view()),
     path("products/images", views.ProductImageView.as_view()),
     path("orders/", views.OrdersView.as_view()),
+    path("cart/items/", views.CartItemView.as_view()),
+    path("cart/items/create", views.CartItemCreateView.as_view()),
 ]

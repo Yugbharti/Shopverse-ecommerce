@@ -10,18 +10,20 @@ Content-Type: application/json
 }
 
 ###
+GET http://127.0.0.1:8000/api/products/?category=mobile
+###
 POST http://127.0.0.1:8000/accounts/login/
 Content-Type: application/json
 
 {
-    "username" : "pam",
-    "password" : "12341235"
+    "email" : "joe@test.com",
+    "password" : "test"
 }
 
 ###
 GET http://127.0.0.1:8000/accounts/profile/users/me
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY5NTE2OTUyLCJpYXQiOjE3Njk1MTY2NTIsImp0aSI6IjU2YjhmNTJiZmM4ZDQwMTE5ZTA1MWM3ZTczMzk2YTVjIiwidXNlcl9pZCI6IjE5In0.gXNUHYAlSirfd3cadQBPqVHVUUXds2B8ajnIStaHbLI
+Authorization: Bearer 
 
 ###
-GET http://127.0.0.1:8000/api/orders/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY5NjE0NDQyLCJpYXQiOjE3Njk2MTQxNDIsImp0aSI6ImJhMzVhMzdhNTE4NjQyZTliOThlYjBjMTM1Zjc1M2E1IiwidXNlcl9pZCI6IjE5In0.QsYrriizglPqOLWupx86miQYODy20iQQTWm8Mj-CvNU
+GET http://127.0.0.1:8000/api/cart/items
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzcxMDYxNzM3LCJpYXQiOjE3NzEwNjE0MzcsImp0aSI6IjU2NzI2OGM0M2Q5MjQ0ZGJhYmFlYmQxNzczNTQ4OTRlIiwidXNlcl9pZCI6IjMwIn0._hRUF-hqhnwJ8ERZwLTEwKKhiZPTZH6ngGuiO6_AS3c

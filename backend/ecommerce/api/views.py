@@ -7,12 +7,15 @@ from rest_framework.generics import (
     CreateAPIView,
 )
 from rest_framework.viewsets import ModelViewSet
-from .models import Product, ProductImage, SubCategory, Order
+from django.shortcuts import get_object_or_404
+from .models import Product, ProductImage, SubCategory, Order, Cart, CartItem
 from .serializers import (
     ProductSerializer,
     ProductImageSerializer,
     CategorySerializer,
     OrderSerializer,
+    CartSerializer,
+    CartItemSerializer,
 )
 from rest_framework.permissions import AllowAny, IsAuthenticated, IsAdminUser
 from accounts.permissions import IsSeller, IsSellerOwner, IsSellerOwnerImage
@@ -107,3 +110,19 @@ class CartCreateView(APIView):
 
     def post(self, request):
         user = request.user
+
+
+class CartItemCreateView(CreateAPIView):
+    queryset = CartItem.objects.all()
+    permission_classes = [IsAuthenticated]
+    serializer_class = CartItemSerializer
+
+
+class CartItemView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        data = Cart.objects.prefetch_related("cart_items").filter(user=request.user)
+        serializer = CartSerializer(data, many=True)
+
+        return Response(serializer.data, status=status.HTTP_200_OK)

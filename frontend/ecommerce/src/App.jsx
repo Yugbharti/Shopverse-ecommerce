@@ -9,24 +9,27 @@ import Home from "./pages/Home";
 import Profile from "./components/Profile";
 import Order from "./pages/Order";
 import Cart from "./pages/Cart";
+import { CartProvider } from "./CartProvider";
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Navbar />
+    <CartProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Navbar />
 
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/orders" element={<Order />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </AuthProvider>
+          <Routes>
+            <Route path="/" element={<Main />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/orders" element={<Order />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </AuthProvider>
+    </CartProvider>
   );
 }
 

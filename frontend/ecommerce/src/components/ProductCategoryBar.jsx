@@ -1,30 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../assets/ProductCategoryBar.css";
 import axiosInstance from "../axiosInstance";
+import { handleAddtoCart } from "../logic/Cartfunctions";
+import { FaStar } from "react-icons/fa6";
+import { CartContext } from "../CartProvider";
 
 const ProductCategoryBar = ({ title, products = [] }) => {
-  const [product_id, setProductId] = useState();
-  const [quantities, setQuantities] = useState({});
+  const { handleAddtoCart, quantities, product_id, setProductId, setQuantity } =
+    useContext(CartContext);
   if (!products || products.length === 0) return null;
-  const handleAddtoCart = async (productId, newQuantity) => {
-    try {
-      setProductId(productId);
-      setQuantities((prev) => ({
-        ...prev,
-        [productId]: Math.max(0, newQuantity),
-      }));
-      const data = {
-        product: productId,
-        quantity: newQuantity,
-      };
-      console.log(data);
-      const res = await axiosInstance.post("api/cart/items/create", data);
-      console.log("success.", res.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className="category-bar">
       <div className="category-header">
@@ -34,7 +18,6 @@ const ProductCategoryBar = ({ title, products = [] }) => {
 
       <div className="product-scroll">
         {products.map((product, index) => {
-          // Access the first image safely from your array structure
           const firstImage = product.images?.[0]?.image_url;
           const uniqueKey = product.images?.[0]?.product || `prod-${index}`;
           const productId = product.images?.[0]?.product;
@@ -47,10 +30,17 @@ const ProductCategoryBar = ({ title, products = [] }) => {
                   alt={product.name}
                   loading="lazy"
                 />
+                <span className="icon-star">
+                  <FaStar className="icon-star-main" />
+                  <span>4.5</span>
+                </span>
                 {quantity == 0 ? (
                   <button
                     className="add-btn"
-                    onClick={() => handleAddtoCart(productId, 1)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleAddtoCart(productId, 1);
+                    }}
                   >
                     +
                   </button>

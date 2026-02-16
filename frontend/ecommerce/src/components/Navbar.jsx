@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "../App.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider";
@@ -8,9 +8,13 @@ import { BsShopWindow } from "react-icons/bs";
 import { VscPackage } from "react-icons/vsc";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { FaRegHeart } from "react-icons/fa6";
+import { CartContext } from "../CartProvider";
 
 const Navbar = () => {
   const { isLoggedIn, setisLoggedIn } = useContext(AuthContext);
+  const { cartItems, setCartItems } = useContext(CartContext);
+  const cart = cartItems?.[0];
+  const items = cart?.cart_items || [];
   const navigate = useNavigate();
 
   return (
@@ -56,10 +60,12 @@ const Navbar = () => {
           <div className="nav-item">
             <span className="nav-icon">
               <BsCartCheck onClick={() => navigate("/cart")} />
+              {items.length > 0 && (
+                <span className="cart-count">{items.length}</span>
+              )}
             </span>
             <div className="dropdown">
               <p onClick={() => navigate("/cart")}>View Cart</p>
-              <p onClick={() => navigate("/checkout")}>Checkout</p>
             </div>
           </div>
         </div>

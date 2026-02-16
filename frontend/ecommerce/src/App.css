@@ -205,3 +205,15 @@
   margin-right: 0.8rem;
   margin-top: 5px;
 }
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  padding: 2px 6px;
+  font-weight: bold;
+}
